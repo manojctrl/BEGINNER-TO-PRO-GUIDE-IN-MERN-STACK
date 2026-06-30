@@ -1,0 +1,60 @@
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.clock-container {
+    text-align: center;
+    background: #222;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    border: 1px solid #333;
+}
+
+#digital-clock {
+    font-size: 3rem;
+    color: #00ffcc;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.alarm-section input, .alarm-section button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+}
+
+.alarm-section input {
+    background: #333;
+    color: #fff;
+}
+
+.alarm-section button {
+    background: #00ffcc;
+    color: #111;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.alarm-section button:hover {
+    background: #00b38f;
+}
+
+#alarm-status {
+    margin-top: 15px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.hidden {
+    display: none;
+}
