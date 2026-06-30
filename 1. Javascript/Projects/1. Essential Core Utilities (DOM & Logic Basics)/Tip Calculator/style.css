@@ -1,0 +1,86 @@
+body {
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calculator-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 350px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="number"]:focus {
+    border-color: #4caf50;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: #4caf50; /* Slider color change */
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 20px 0;
+}
+
+.results {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.result-row.highlight {
+    color: #4caf50;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.amount::before {
+    content: "₨ "; /* Tapaile yeslai $ pani rakhna saknuhunchha */
+}
