@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f4f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.summary{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+}
+
+.summary div{
+    /* border: 1px solid #ddd; */
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0 5px;
+    color: #fff;
+
+}
+
+ 
+.income-box { background: #2ecc71; }
+.expense-box { background: #e74c3c; }
+.balance-box { background: #3498db; }
+
+
+ 
+.summary h3 { margin: 0; font-size: 13px; }
+.summary p { margin: 5px 0 0; font-size: 16px; font-weight: bold; }
+ 
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+ 
+form input, form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
+}
+ 
+form button {
+  padding: 8px 14px;
+  border: none;
+  background: #3498db;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+}
+ 
+form button:hover { background: #2980b9; }
+ 
+ul { list-style: none; padding: 0; margin: 0; max-height: 220px; overflow-y: auto; }
+ 
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+ 
+li.income { background: #eafaf1; border-left: 4px solid #2ecc71; }
+li.expense { background: #fdecea; border-left: 4px solid #e74c3c; }
+ 
+li span.amt.income-amt { color: #27ae60; font-weight: bold; }
+li span.amt.expense-amt { color: #c0392b; font-weight: bold; }
+ 
+li button {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 14px;
+}
+ 
+li button:hover { color: #e74c3c; }

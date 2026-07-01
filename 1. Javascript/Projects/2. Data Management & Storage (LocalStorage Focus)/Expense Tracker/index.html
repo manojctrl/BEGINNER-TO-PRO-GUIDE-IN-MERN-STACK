@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=., initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Expense Tracker </h1>
+
+    <div class="summary">
+      <div class="income-box">
+        <h3> Income</h3>
+        <p id="totalIncome">Rs 0</p>
+      </div>
+      <div class="expense-box">
+        <h3 id="totalExpense"> Expense</h3>
+        <p>Rs 0</p>
+      </div>
+      <div class="balance-box">
+        <h3> Balance</h3>
+        <p id="balance">Rs 0</p>
+      </div>
+    </div>
+
+  <form id="transactionForm">
+    <input type="text" placeholder="Enter Description" id="title">
+    <input type="number" placeholder="Enter Amount" required id="amount">
+    <select id="type" >
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+    <button type="submit">Add Transaction</button>
+  </form>
+
+  <ul id="list">
+    <!-- Transactions will be added here -->
+  </div>
+
+  <script src="./script.js"></script>
+  
+</body>
+</html>
