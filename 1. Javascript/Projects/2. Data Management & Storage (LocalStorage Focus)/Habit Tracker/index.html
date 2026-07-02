@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>🔥 Habit Tracker</h1>
+
+    <!-- Month Navigation -->
+    <div class="month-nav">
+      <button id="prevMonth">&#8592;</button>
+      <span id="monthLabel"></span>
+      <button id="nextMonth">&#8594;</button>
+    </div>
+
+    <!-- Add Habit -->
+    <div class="add-box">
+      <input type="text" id="habitInput" placeholder="New habit (e.g. Exercise, Read)" />
+      <input type="color" id="habitColor" value="#3498db" title="Pick color" />
+      <button id="addHabitBtn">+ Add</button>
+    </div>
+
+    <!-- Habit Grid -->
+    <div id="habitGrid"></div>
+
+    <p id="emptyMsg" class="empty-msg">No habits yet. Add one above!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
