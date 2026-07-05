@@ -1,19 +1,11 @@
-import React, { useEffect } from "react";
+import React from 'react'
+// import UseState from './components/UseState/UseState'
+import Cleanup from './components/Cleanup/Cleanup'
 
 const App = () => {
-  const [count, setCount] = React.useState(0);
+  return <Cleanup />
+  
 
-  useEffect(() => {
-    console.log("Run");
-  },[count]);
+}
 
-  return (
-    <div>
-      <h1>{count}</h1>
-
-      <button onClick={() => setCount(count + 1)}>Increase</button>
-    </div>
-  );
-};
-
-export default App;
+export default App
