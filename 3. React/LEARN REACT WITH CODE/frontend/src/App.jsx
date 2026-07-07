@@ -4,9 +4,10 @@ import React from 'react'
 import UseRef from './components/UseRef/UseRef'
 // import StopWatch from './components/StopWatch/StopWatch'
 import Video from './components/Video/Video'
+import MainApp from './pages/MainApp/MainApp'
 
 const App = () => {
-  return <Video />
+  return <MainApp />
   
 
 }
