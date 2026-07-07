@@ -7,6 +7,7 @@ const Body = () => {
         <h2>welcome , User </h2>
         <p>this is the body of the app</p>
         <button>Log out</button>
+        <h1>Hello</h1>
     </div>
    </main>
   )
