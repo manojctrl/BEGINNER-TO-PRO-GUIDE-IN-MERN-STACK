@@ -5,9 +5,10 @@ import UseRef from './components/UseRef/UseRef'
 // import StopWatch from './components/StopWatch/StopWatch'
 import Video from './components/Video/Video'
 import MainApp from './pages/MainApp/MainApp'
+import UseReducer from './components/UseReducer/UseReducer'
 
 const App = () => {
-  return <MainApp />
+  return <UseReducer />
   
 
 }
