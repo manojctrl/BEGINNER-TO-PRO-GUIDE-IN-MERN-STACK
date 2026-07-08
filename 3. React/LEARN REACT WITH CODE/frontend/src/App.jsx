@@ -7,9 +7,10 @@ import Video from './components/Video/Video'
 import MainApp from './pages/MainApp/MainApp'
 import UseReducer from './components/UseReducer/UseReducer'
 import Test from './components/Test/Test'
+import Counter from './components/counter/Counter'
 
 const App = () => {
-  return <Test />
+  return <Counter />
   
 
 }
