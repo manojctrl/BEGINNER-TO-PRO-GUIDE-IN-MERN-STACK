@@ -6,9 +6,10 @@ import UseRef from './components/UseRef/UseRef'
 import Video from './components/Video/Video'
 import MainApp from './pages/MainApp/MainApp'
 import UseReducer from './components/UseReducer/UseReducer'
+import Test from './components/Test/Test'
 
 const App = () => {
-  return <UseReducer />
+  return <Test />
   
 
 }
