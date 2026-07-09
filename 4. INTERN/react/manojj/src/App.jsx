@@ -10,7 +10,7 @@ import Products from "./components/Products/Products";
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-white">
       {/* <Navbar />
       <Counter />
       <Footer /> */}

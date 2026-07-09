@@ -10,8 +10,8 @@ const ExCon = () => {
                 Output : {active === "add" ? add : remote}
             </h1>
            
-            <button onClick={handleAdd}>Change Add</button>
-            <button onClick={handleRemote}>Change Remote</button>
+            <button onClick={handleAdd}>Add</button>
+            <button onClick={handleRemote}>Remote</button>
         </div>
     );
 };
