@@ -3,6 +3,7 @@
 // import Navbar from "./components/Navbar/Navbar";
 
 // import { Form } from "react-router";
+import ExCon from "./components/ExCon/ExCon";
 import Form from "./components/Form/Form";
 import ProductCard from "./components/Products/ProductCard";
 import Products from "./components/Products/Products";
@@ -14,7 +15,8 @@ const App = () => {
       <Counter />
       <Footer /> */}
       {/* <Form /> */}
-      <Products />
+      {/* <Products /> */}
+      <ExCon />
       
     </div>
   );
