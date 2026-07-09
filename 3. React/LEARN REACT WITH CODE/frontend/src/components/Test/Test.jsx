@@ -5,7 +5,7 @@ const Test = () => {
   return (
     <div>
       <input  type='checkbox' checked={checked} onChange={toggle} />
-      {checked ? <h1>Checked</h1> : <h1>Not Checked</h1>}
+      {checked ? <h1>Checked</h1> : <h1>Not Checked ok </h1>}
     </div>
 
   )
