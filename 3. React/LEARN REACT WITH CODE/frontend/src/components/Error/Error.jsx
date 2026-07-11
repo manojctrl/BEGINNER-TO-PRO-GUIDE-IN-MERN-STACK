@@ -14,12 +14,9 @@ const Error = () => {
       <ErrorBoundary>
         <UserProfile userData={userData} />
       </ErrorBoundary>
-      <ErrorBoundary >
-
-      <UserProfile userData={userData1} />
-
+      <ErrorBoundary fallback={<p>Error in user profile</p>}>
+        <UserProfile userData={userData1} />
       </ErrorBoundary>
-
     </div>
   );
 };
