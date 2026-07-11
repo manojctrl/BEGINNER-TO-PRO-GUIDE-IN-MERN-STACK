@@ -11,9 +11,10 @@ import Counter from './components/counter/Counter'
 import Form from './components/Form/Form'
 import WithoutUseMemo from './WithoutUseMemo/WithoutUseMemo'
 import WithUseMemo from './components/WithUseMemo/WithUseMemo'
+import Error from './components/Error/Error'
 
 const App = () => {
-  return  <WithUseMemo />
+  return  <Error />
 
 }
 
