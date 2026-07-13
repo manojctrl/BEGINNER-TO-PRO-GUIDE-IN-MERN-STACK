@@ -1,5 +1,8 @@
-const os = require('os');
+const express = require('express')
+const app = express();
+const PORT = 3000;
 
-console.log('Platform:', os.platform()); 
-console.log('Total Memory:', os.totalmem() )
-console.log('Free Memory:', os.freemem()) 
+
+app.listen(PORT, ()=> {
+    console.log(`Server is running on port ${PORT} `)
+})
