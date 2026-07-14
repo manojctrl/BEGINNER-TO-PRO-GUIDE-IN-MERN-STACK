@@ -3,13 +3,12 @@ import vegetables from "../../assets/vegetables.png";
 import Button from "../button/Button";
 
 const HeroSection = () => {
-    throw new Error("Hero Section Crash Vayo haita ")
+    throw new Error("Crash vayo randi  ")
   return (
     <section className="min-h-[85vh] bg-[#e6eee1] flex items-center px-8 md:px-16 lg:px-24 py-12 justify-around">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full">
         
-        {/* Left Side: Text Content */}
-        {/* 'flex-col' सँग 'gap-y' प्रयोग गर्दा सबै कम्पोनेन्टहरू बीचको दूरी ग्यारेन्टीका साथ बस्छ */}
+       
         <div className="flex flex-col gap-y-6 md:gap-y-8 text-left justify-center">
           
           <div>
