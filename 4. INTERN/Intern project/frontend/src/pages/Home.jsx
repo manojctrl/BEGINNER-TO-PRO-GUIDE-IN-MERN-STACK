@@ -1,10 +1,14 @@
 import React from 'react'
+import HeroSection from '../components/HeroSection/HeroSection'
+import HeroBoundary from '../components/HeroSection/HeroBoundary'
 
 const Home = () => {
   return (
-    <div>
-      Home 
-    </div>
+    <>
+      <HeroBoundary />
+
+      </>
+    
   )
 }
 
