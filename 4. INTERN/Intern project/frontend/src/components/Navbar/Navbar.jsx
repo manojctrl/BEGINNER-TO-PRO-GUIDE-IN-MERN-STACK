@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className="flex justify-around h-20 items-center">
             
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <Link to="/" className="text-2xl font-black text-emerald-800 tracking-tight">
                 Farm<span className="text-emerald-500">_Root</span>
               </Link>
@@ -84,7 +84,7 @@ const Navbar = () => {
       />
 
       {/* Mobile Sidebar */}
-      <div className={`fixed top-0 right-0 bottom-0 w-[80%] max-w-[360px] bg-white z-50 lg:hidden shadow-2xl flex flex-col justify-between p-6 transition-transform duration-300 ease-in-out ${
+      <div className={`fixed top-0 right-0 bottom-0 w-[80%] max-w-90 bg-white z-50 lg:hidden shadow-2xl flex flex-col justify-between p-6 transition-transform duration-300 ease-in-out ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div>
