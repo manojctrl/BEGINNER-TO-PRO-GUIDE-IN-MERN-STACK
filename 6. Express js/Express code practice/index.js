@@ -1,8 +1,7 @@
-const express = require('express')
-const app = express();
-const PORT = 3000;
+function run(x, ...y){
+    console.log(x)
+    console.log(y)
+}
 
+run(1,2,3,4,5)
 
-app.listen(PORT, ()=> {
-    console.log(`Server is running on port ${PORT} `)
-})
