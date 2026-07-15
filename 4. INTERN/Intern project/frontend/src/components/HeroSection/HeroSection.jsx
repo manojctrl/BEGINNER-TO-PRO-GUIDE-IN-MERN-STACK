@@ -22,7 +22,7 @@ const HeroSection = () => {
           </div>
 
           <p className="text-sm md:text-base text-gray-600 max-w-md leading-relaxed">
-            Discover fresh, organic and handpicked vegetables directly from local.
+            Discover fresh, organic and handpicked vegetables directly from local...!!
           </p>
 
           {/* Button Container: यसले बटनलाई तल धकेल्छ र ट्याक्क मिल्ने स्पेस दिन्छ */}
