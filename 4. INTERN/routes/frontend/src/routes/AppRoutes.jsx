@@ -8,6 +8,8 @@ import Login from "../pages/Login";
 import Testonomials from "../pages/Testonomials";
 import ErrorPage from "../pages/ErrorPage";
 import Unauthorized from "../pages/Unauthorized";
+import Protected from "../components/Protected";
+import Admin from "../pages/Admin";
 
 const AppRoutes = () => {
   return (
@@ -17,8 +19,12 @@ const AppRoutes = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<Login />} />
       <Route path="/testonomials" element={<Testonomials />} />
-      <Route path="/unauthorized" element={<Unauthorized />} />
 
+      <Route path="/unauthorized" element={<Unauthorized />} />
+      <Route element={<Protected user="Admin" allowedroles={["Admin", "Cashier"]} />}>
+
+        <Route path="/admin" element={<Admin />} />
+      </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
