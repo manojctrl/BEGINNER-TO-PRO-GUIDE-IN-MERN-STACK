@@ -34,7 +34,7 @@ const HeroSection = () => {
 
         {/* Right Side: Image */}
         <div className="flex justify-center md:justify-end w-full">
-          <div className="relative w-[320px] sm:w-[360px] md:w-[420px] lg:w-[480px]">
+          <div className="relative w-[320px] sm:w-90 md:w-[420] lg:w-120">
             <div className="w-full h-full rounded-[150px] overflow-hidden border-4 border-white shadow-2xl">
               <img
                 src={vegetables}
