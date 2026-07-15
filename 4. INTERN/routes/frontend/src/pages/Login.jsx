@@ -9,6 +9,11 @@ const Login = () => {
     e.preventDefault();
     console.log(name);
     console.log(role);
+    alert("Alert you syco ")
+    confirm("Are you sure  ")
+  let x =   prompt("Enter number:")
+  console.log(x)
+    
   };
 
   return (

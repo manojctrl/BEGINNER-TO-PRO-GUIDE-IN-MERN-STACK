@@ -7,6 +7,7 @@ import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Testonomials from "../pages/Testonomials";
 import ErrorPage from "../pages/ErrorPage";
+import Unauthorized from "../pages/Unauthorized";
 
 const AppRoutes = () => {
   return (
@@ -16,8 +17,9 @@ const AppRoutes = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<Login />} />
       <Route path="/testonomials" element={<Testonomials />} />
-            <Route path="*" element={<ErrorPage />} />
+      <Route path="/unauthorized" element={<Unauthorized />} />
 
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 };
