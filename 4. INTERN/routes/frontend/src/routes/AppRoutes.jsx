@@ -12,6 +12,7 @@ import Protected from "../components/Protected";
 import Admin from "../pages/Admin";
 
 const AppRoutes = () => {
+   const role = localStorage.getItem("role");
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -21,7 +22,7 @@ const AppRoutes = () => {
       <Route path="/testonomials" element={<Testonomials />} />
 
       <Route path="/unauthorized" element={<Unauthorized />} />
-      <Route element={<Protected user="Admin" allowedroles={["Admin", "Cashier"]} />}>
+      <Route element={<Protected user={role} allowedroles={["Admin", "Cashier"]} />}>
 
         <Route path="/admin" element={<Admin />} />
       </Route>
