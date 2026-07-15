@@ -6,6 +6,7 @@ import {
 } from 'react-icons/fi';
 
 const Navbar = () => {
+  // throw new Error("Navbar gayo randi ")
   const [isOpen, setIsOpen] = useState(false);
 
   // Desktop nav style

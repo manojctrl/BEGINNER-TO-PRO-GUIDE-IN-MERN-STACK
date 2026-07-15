@@ -4,9 +4,7 @@ import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 const NavbarBoundary = () => {
   return (
-    <ErrorBoundary>
         <Navbar></Navbar>
-    </ErrorBoundary>
   )
 }
 

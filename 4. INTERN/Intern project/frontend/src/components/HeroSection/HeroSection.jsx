@@ -3,7 +3,6 @@ import vegetables from "../../assets/vegetables.png";
 import Button from "../button/Button";
 
 const HeroSection = () => {
-    throw new Error("Crash vayo randi  ")
   return (
     <section className="min-h-[85vh] bg-[#e6eee1] flex items-center px-8 md:px-16 lg:px-24 py-12 justify-around">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full">
