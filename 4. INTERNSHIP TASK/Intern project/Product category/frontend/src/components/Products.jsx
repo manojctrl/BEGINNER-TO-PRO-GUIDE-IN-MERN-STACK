@@ -51,7 +51,7 @@ const Products = () => {
         <h1 className="text-3xl font-extrabold text-gray-900 text-center mb-10">Featured Products</h1>
         
         {/* --- Filter Controls UI --- */}
-        <div className="bg-white p-6 rounded-xl sticky top-2 shadow-sm border border-gray-100 mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white p-6 rounded-xl sticky top-2 z-50 shadow-sm border border-gray-100 mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           
           {/* Search Input */}
           <div>
