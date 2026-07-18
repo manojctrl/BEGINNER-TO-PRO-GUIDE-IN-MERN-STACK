@@ -6,8 +6,9 @@ import {
 } from 'lucide-react';
 
 // --- CONFIG & CONSTANTS ---
-const API_KEY = 'd7ae1e06113eeb5b042f07a3da301b99'; // Replace with your OpenWeatherMap API key
+const API_KEY = 'd7ae1e06113eeb5b042f07a3da301b99'; // Your API Key
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+const GEO_URL = 'https://api.openweathermap.org/geo/1.0';
 
 // --- HELPER FUNCTIONS ---
 
@@ -87,12 +88,47 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // New states for search suggestions
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  // Fetch city suggestions from OpenWeatherMap Geocoding API
+  const fetchSuggestions = async (query) => {
+    if (query.length < 3) {
+      setSuggestions([]);
+      return;
+    }
+    try {
+      const res = await fetch(`${GEO_URL}/direct?q=${query}&limit=5&appid=${API_KEY}`);
+      if (res.ok) {
+        const data = await res.json();
+        setSuggestions(data);
+      }
+    } catch (err) {
+      console.error("Error fetching suggestions:", err);
+    }
+  };
+
+  // Debounce effect for search suggestions
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (city) {
+        fetchSuggestions(city);
+      } else {
+        setSuggestions([]);
+      }
+    }, 500); // Wait for 500ms after user stops typing
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [city]);
+
   // Fetch weather data from OpenWeatherMap API
   const fetchWeather = async (query) => {
     if (!query) return;
     setLoading(true);
     setError('');
     setWeatherData(null);
+    setShowSuggestions(false); // Hide dropdown when searching
 
     try {
       // 1. Fetch Current Weather
@@ -126,6 +162,7 @@ export default function App() {
   const fetchWeatherByLocation = () => {
     setLoading(true);
     setError('');
+    setShowSuggestions(false);
     if (!navigator.geolocation) {
       setError('Geolocation is not supported by your browser');
       setLoading(false);
@@ -161,6 +198,13 @@ export default function App() {
     }
   };
 
+  // Handle Suggestion Click
+  const handleSuggestionClick = (suggestion) => {
+    const fullName = `${suggestion.name}${suggestion.state ? ', ' + suggestion.state : ''}, ${suggestion.country}`;
+    setCity(fullName);
+    fetchWeather(fullName);
+  };
+
   // Background logic
   const isDay = weatherData ? weatherData.weather[0].icon.includes('d') : true;
   const weatherMain = weatherData ? weatherData.weather[0].main : 'Default';
@@ -172,18 +216,42 @@ export default function App() {
       <div className="w-full max-w-5xl">
         
         {/* Header / Search */}
-        <header className="w-full mb-8 animate-fade-in">
+        <header className="w-full mb-8 animate-fade-in z-20 relative">
           <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60" size={20} />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 z-10" size={20} />
               <input
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} // Delay to allow click event to fire
                 placeholder="Search city..."
-                className="w-full pl-12 pr-4 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/40 transition-all"
+                className="w-full pl-12 pr-4 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/40 transition-all relative z-10"
+                autoComplete="off"
               />
+              
+              {/* Suggestions Dropdown */}
+              {showSuggestions && suggestions.length > 0 && (
+                <ul className="absolute top-full mt-2 w-full bg-black/40 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden shadow-2xl z-30">
+                  {suggestions.map((sug, idx) => (
+                    <li
+                      key={idx}
+                      onClick={() => handleSuggestionClick(sug)}
+                      className="px-4 py-3 cursor-pointer hover:bg-white/20 transition-colors text-white flex items-center gap-3 border-b border-white/5 last:border-0"
+                    >
+                      <Search size={16} className="text-white/50" />
+                      <span>
+                        {sug.name}
+                        {sug.state ? <span className="text-white/60 text-sm">, {sug.state}</span> : null}
+                        <span className="text-white/40 text-sm ml-1">({sug.country})</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
+            
             <button 
               type="button" 
               onClick={fetchWeatherByLocation}
