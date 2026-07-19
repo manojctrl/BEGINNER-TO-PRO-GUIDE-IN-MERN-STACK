@@ -182,3 +182,57 @@
     border-right-color: var(--border);
   }
 }
+
+/* App-specific layout */
+.app {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 12px;
+}
+
+header h1 {
+  margin: 0 0 12px 0;
+}
+
+main {
+  display: flex;
+  gap: 16px;
+}
+
+.left { flex: 1 }
+.right { width: 320px }
+
+.search input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.movie-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px }
+.movie-card { background: #fff; border: 1px solid #eee; padding:8px; border-radius:6px }
+.movie-card img { width:100%; height:220px; object-fit:cover; border-radius:4px }
+.movie-card .meta { padding:6px 0 }
+.movie-card h3 { margin:0; font-size:14px; cursor:pointer }
+.movie-card p { margin:4px 0 8px; color:#666; font-size:13px }
+.movie-card button { padding:6px 8px; border-radius:6px; border: none; cursor:pointer }
+.movie-card .add { background:#1976d2; color:white }
+.movie-card .remove { background:#e53935; color:white }
+
+.watchlist { background:#fafafa; padding:12px; border-radius:6px; border:1px solid #eee }
+.watchlist h2 { margin-top:0 }
+.watch-item { display:flex; gap:8px; align-items:center; padding:6px 0 }
+.watch-item img { width:48px; height:68px; object-fit:cover; border-radius:4px }
+.watch-item .info { flex:1; cursor:pointer }
+.watch-item button { padding:6px 8px; border-radius:6px }
+
+.empty { color:#777; padding:12px }
+
+.modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center }
+.modal { background:white; width:720px; max-width:95%; border-radius:8px; padding:12px; position:relative }
+.modal .close { position:absolute; right:8px; top:8px; background:transparent; border:none; font-size:22px; cursor:pointer }
+.modal-content { display:flex; gap:12px }
+.modal-content img { width:180px; height:260px; object-fit:cover; border-radius:6px }
+.modal-content .details { flex:1 }
+
