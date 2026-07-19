@@ -1,121 +1,137 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useEffect, useState } from 'react'
 import './App.css'
 
+const STORAGE_KEY = 'tasks_v1'
+
+function useLocalStorageState(key, initial) {
+  const [state, setState] = useState(() => {
+    try {
+      const raw = localStorage.getItem(key)
+      return raw ? JSON.parse(raw) : initial
+    } catch (e) {
+      return initial
+    }
+  })
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(key, JSON.stringify(state))
+    } catch (e) {
+      // ignore
+    }
+  }, [key, state])
+
+  return [state, setState]
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [tasks, setTasks] = useLocalStorageState(STORAGE_KEY, [])
+  const [text, setText] = useState('')
+  const [editingId, setEditingId] = useState(null)
+  const [filter, setFilter] = useState('all') // all | active | completed
+
+  function addTask(e) {
+    e.preventDefault()
+    const trimmed = text.trim()
+    if (!trimmed) return
+    const newTask = {
+      id: Date.now().toString(),
+      text: trimmed,
+      completed: false,
+      createdAt: Date.now(),
+    }
+    setTasks([newTask, ...tasks])
+    setText('')
+  }
+
+  function removeTask(id) {
+    setTasks(tasks.filter((t) => t.id !== id))
+  }
+
+  function toggleComplete(id) {
+    setTasks(tasks.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)))
+  }
+
+  function startEdit(id) {
+    setEditingId(id)
+  }
+
+  function saveEdit(id, newText) {
+    const trimmed = newText.trim()
+    if (!trimmed) {
+      removeTask(id)
+    } else {
+      setTasks(tasks.map((t) => (t.id === id ? { ...t, text: trimmed } : t)))
+    }
+    setEditingId(null)
+  }
+
+  const visible = tasks.filter((t) => {
+    if (filter === 'active') return !t.completed
+    if (filter === 'completed') return t.completed
+    return true
+  })
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app">
+      <header>
+        <h1>Task Manager</h1>
+      </header>
 
-      <div className="ticks"></div>
+      <main>
+        <form className="new-task" onSubmit={addTask}>
+          <input
+            aria-label="New task"
+            placeholder="Add a new task..."
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          <button type="submit">Add</button>
+        </form>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+        <div className="filters">
+          <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>All</button>
+          <button className={filter === 'active' ? 'active' : ''} onClick={() => setFilter('active')}>Active</button>
+          <button className={filter === 'completed' ? 'active' : ''} onClick={() => setFilter('completed')}>Completed</button>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        <ul className="task-list">
+          {visible.length === 0 && <li className="empty">No tasks</li>}
+          {visible.map((t) => (
+            <li key={t.id} className={t.completed ? 'done' : ''}>
+              <input type="checkbox" checked={t.completed} onChange={() => toggleComplete(t.id)} />
+              {editingId === t.id ? (
+                <InlineEditor initial={t.text} onCancel={() => setEditingId(null)} onSave={(v) => saveEdit(t.id, v)} />
+              ) : (
+                <span className="task-text" onDoubleClick={() => startEdit(t.id)}>{t.text}</span>
+              )}
+              <div className="actions">
+                <button onClick={() => startEdit(t.id)}>Edit</button>
+                <button onClick={() => removeTask(t.id)}>Delete</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </main>
+
+      <footer>
+        <small>{tasks.filter((t) => !t.completed).length} tasks left</small>
+      </footer>
+    </div>
+  )
+}
+
+function InlineEditor({ initial, onSave, onCancel }) {
+  const [v, setV] = useState(initial)
+  return (
+    <span className="inline-editor">
+      <input value={v} onChange={(e) => setV(e.target.value)} onKeyDown={(e) => {
+        if (e.key === 'Enter') onSave(v)
+        if (e.key === 'Escape') onCancel()
+      }} />
+      <button onClick={() => onSave(v)}>Save</button>
+      <button onClick={onCancel}>Cancel</button>
+    </span>
   )
 }
 

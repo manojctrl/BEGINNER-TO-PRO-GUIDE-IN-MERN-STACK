@@ -182,3 +182,31 @@
     border-right-color: var(--border);
   }
 }
+
+/* Task Manager styles */
+.app {
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  background: #fff;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #111;
+}
+.app header { text-align: center; margin-bottom: 12px }
+.new-task { display:flex; gap:8px; margin-bottom:12px }
+.new-task input { flex:1; padding:10px 12px; border:1px solid #ddd; border-radius:6px }
+.new-task button { padding:10px 14px; border-radius:6px; border:none; background:#007bff; color:#fff }
+.filters { display:flex; gap:8px; margin-bottom:12px }
+.filters button { padding:6px 10px; border-radius:6px; border:1px solid #ddd; background:transparent }
+.filters button.active { background:#f0f8ff; border-color:#a9d1ff }
+.task-list { list-style:none; padding:0; margin:0 }
+.task-list li { display:flex; align-items:center; gap:8px; padding:8px 6px; border-bottom:1px solid #f0f0f0 }
+.task-list li.done .task-text { text-decoration:line-through; color:#777 }
+.task-text { flex:1 }
+.actions button { margin-left:6px; padding:6px 8px; border-radius:6px; border:1px solid #eee; background:transparent }
+.inline-editor { display:flex; gap:8px; align-items:center }
+.inline-editor input { padding:6px 8px }
+.empty { text-align:center; padding:18px; color:#666 }
+footer { text-align:center; margin-top:12px; color:#666 }
