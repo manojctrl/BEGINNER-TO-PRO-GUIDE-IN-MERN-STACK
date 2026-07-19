@@ -182,3 +182,18 @@
     border-right-color: var(--border);
   }
 }
+
+/* DishDiscover styles */
+.app { padding: 20px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+.app header { margin-bottom: 16px }
+.controls { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px }
+.ingredient-search input { margin-left: 8px; padding: 6px 8px }
+.ingredient-search button { margin-left: 8px }
+.filters label { display: block; margin: 6px 0 }
+.results ul { list-style: none; padding: 0 }
+.recipe { display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-bottom:1px solid #eee }
+.planner-grid { display:flex; gap:8px; margin-bottom:12px }
+.day { flex:1; padding:8px; border:1px solid #ddd; border-radius:4px; text-align:center }
+.assign { display:flex; gap:8px; align-items:center }
+.assign label { display:flex; flex-direction:column }
+
