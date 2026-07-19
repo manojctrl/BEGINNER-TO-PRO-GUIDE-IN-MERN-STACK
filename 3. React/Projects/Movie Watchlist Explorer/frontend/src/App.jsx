@@ -10,35 +10,35 @@ const SAMPLE_MOVIES = [
     id: 'm1',
     title: 'The Shawshank Redemption',
     year: '1994',
-    poster: 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlZTI4ZjYxXkEyXkFqcGdeQXVyNDY2MTk1Njg@._V1_SX300.jpg',
+    poster: 'https://via.placeholder.com/300x450?text=Shawshank+Redemption',
     plot: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.'
   },
   {
     id: 'm2',
     title: 'Inception',
     year: '2010',
-    poster: 'https://m.media-amazon.com/images/I/51s+Z+9j2PL._AC_.jpg',
+    poster: 'https://via.placeholder.com/300x450?text=Inception',
     plot: 'A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.'
   },
   {
     id: 'm3',
     title: 'Interstellar',
     year: '2014',
-    poster: 'https://m.media-amazon.com/images/I/71n58m6tVQL._AC_SY679_.jpg',
+    poster: 'https://via.placeholder.com/300x450?text=Interstellar',
     plot: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.'
   },
   {
     id: 'm4',
     title: 'The Dark Knight',
     year: '2008',
-    poster: 'https://m.media-amazon.com/images/I/51EbJjlx2FL._AC_.jpg',
+    poster: 'https://via.placeholder.com/300x450?text=The+Dark+Knight',
     plot: 'Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and DA Harvey Dent, Batman sets out to dismantle the remaining criminal organizations.'
   },
   {
     id: 'm5',
     title: 'Parasite',
     year: '2019',
-    poster: 'https://m.media-amazon.com/images/I/91i0a8kFZ0L._SL1500_.jpg',
+    poster: 'https://via.placeholder.com/300x450?text=Parasite',
     plot: 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.'
   }
 ]
