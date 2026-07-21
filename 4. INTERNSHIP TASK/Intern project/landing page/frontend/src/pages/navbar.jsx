@@ -2,7 +2,7 @@ import Button from "../components/Button";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-100">
+    <nav className="bg-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="h-20 flex items-center justify-between">
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
-import Button from "../components/Button"; // adjust path as needed
+import Button from "../../components/Button"; // adjust path as needed
 
 const CTA = () => {
   return (

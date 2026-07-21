@@ -7,6 +7,7 @@ import Preference from './pages/preference/Preference'
 import Steps from './pages/Step/Steps'
 import Mission from './pages/Mission/Mission'
 import Footer from './pages/Flooter/Footer'
+import CTA from './pages/CTA/CTA'
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
       <Preference />
       <Steps/>
       <Mission/>
+      <CTA />
       <Footer/>
     </div>
   )
