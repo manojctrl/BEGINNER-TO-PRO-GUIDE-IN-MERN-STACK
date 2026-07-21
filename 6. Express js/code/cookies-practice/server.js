@@ -9,7 +9,9 @@ app.use(cookieParser());
 const PORT = 5000;
 
 app.get('/', (req, res)=>{
-    res.cookie("username", "manoj");
+    res.cookie("username", "manoj", {
+        httpOnly: true
+    });
     res.cookie("theme", "dark");
      res.cookie("language", "en");
     //  res.send(req.headers.cookie)
