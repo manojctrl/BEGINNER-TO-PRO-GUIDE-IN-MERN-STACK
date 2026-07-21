@@ -13,6 +13,7 @@ const CTA = () => {
             <p className="uppercase text-cyan-500 text-sm tracking-widest font-semibold">
               Try It Now
             </p>
+            
 
             <h2 className="text-5xl font-bold text-white mt-4 leading-tight">
               Ready to level up your
