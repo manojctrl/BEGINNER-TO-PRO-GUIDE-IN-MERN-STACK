@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
+  const linkClass = ({ isActive }) =>
+    `transition-colors ${isActive ? 'text-emerald-700 font-semibold' : 'text-slate-700 hover:text-emerald-600'}`;
+
   return (
     <footer className="bg-white border-t border-slate-200 py-8 mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,11 +18,11 @@ const Footer = () => {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 mb-3">Quick links</h3>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li><Link to="/" className="hover:text-emerald-600 transition-colors">Home</Link></li>
-              <li><Link to="/products" className="hover:text-emerald-600 transition-colors">Products</Link></li>
-              <li><Link to="/about" className="hover:text-emerald-600 transition-colors">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-emerald-600 transition-colors">Contact</Link></li>
+            <ul className="space-y-2 text-sm">
+              <li><NavLink to="/" className={linkClass}>Home</NavLink></li>
+              <li><NavLink to="/products" className={linkClass}>Products</NavLink></li>
+              <li><NavLink to="/about" className={linkClass}>About Us</NavLink></li>
+              <li><NavLink to="/contact" className={linkClass}>Contact</NavLink></li>
             </ul>
           </div>
 
@@ -34,9 +37,9 @@ const Footer = () => {
         <div className="mt-10 pt-6 border-t border-slate-200 text-sm text-slate-500 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Farm Root. All rights reserved.</p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/privacy" className="hover:text-emerald-600 transition-colors">Privacy</Link>
-            <Link to="/terms" className="hover:text-emerald-600 transition-colors">Terms</Link>
-            <Link to="/support" className="hover:text-emerald-600 transition-colors">Support</Link>
+            <NavLink to="/privacy" className={linkClass}>Privacy</NavLink>
+            <NavLink to="/terms" className={linkClass}>Terms</NavLink>
+            <NavLink to="/support" className={linkClass}>Support</NavLink>
           </div>
         </div>
       </div>
