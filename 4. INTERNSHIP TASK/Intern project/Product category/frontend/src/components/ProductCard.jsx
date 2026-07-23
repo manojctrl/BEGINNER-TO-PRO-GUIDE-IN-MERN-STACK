@@ -1,5 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 export const ProductCard = ({ obj }) => {
-  console.log(obj);
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col">
       <div className="h-48 p-4 bg-white flex items-center justify-center">
@@ -17,13 +20,16 @@ export const ProductCard = ({ obj }) => {
           {obj.title}
         </h3>
         <div className="mt-auto">
-          <p className="text-lg font-bold text-gray-900 mb-3">{obj.price}</p>
-          <p className="text-sm font-light  text-gray-900 mb-3 line-clamp-3">
+          <p className="text-lg font-bold text-gray-900 mb-3">${obj.price}</p>
+          <p className="text-sm font-light text-gray-900 mb-3 line-clamp-3">
             {obj.description}
           </p>
 
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm font-semibold transition-colors duration-200">
-            Add to Cart
+          <button
+            onClick={() => navigate(`/product/${obj.id}`)}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm font-semibold transition-colors duration-200"
+          >
+            View Product
           </button>
         </div>
       </div>

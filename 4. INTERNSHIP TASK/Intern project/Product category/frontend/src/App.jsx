@@ -1,12 +1,17 @@
-import React from 'react'
-import Products from './components/Products'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProductsList from './components/ProductsList';
+import ProductDetail from './components/ProductDetail';
 
 const App = () => {
   return (
-    <div>
-      <Products />
-    </div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ProductsList />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
