@@ -28,8 +28,8 @@ const Navbar = () => {
   return (
     <>
       {/* Top Navbar */}
-      <nav className="bg-white/90 backdrop-blur-md border-b border-gray-100 w-full fixed top-0 left-0 z-50">
-          <div className="flex justify-around h-20 items-center">
+      <nav className="bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm w-full fixed top-0 left-0 z-50">
+          <div className="max-w-7xl mx-auto flex justify-between h-20 items-center px-4 sm:px-6 lg:px-8 w-full">
             
             {/* Logo */}
             <div className="shrink-0">
