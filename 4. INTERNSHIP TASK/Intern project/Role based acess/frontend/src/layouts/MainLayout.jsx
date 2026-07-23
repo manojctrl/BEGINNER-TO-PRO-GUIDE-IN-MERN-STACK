@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import NavbarBoundary from "../components/Navbar/NavbarBoundary";
 import Animations from "../components/Animation/Animation";
+import Footer from "../components/Footer/Footer";
 
 const MainLayout = () => {
   return (
@@ -13,6 +14,7 @@ const MainLayout = () => {
           <Outlet />
         </Suspense>
       </main>
+      <Footer />
     </div>
   );
 };
